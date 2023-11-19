@@ -1,7 +1,6 @@
 # Imports needed
 import re
-from datetime import date
-from datetime import timedelta, datetime
+from datetime import date, timedelta, datetime
 import requests
 from bs4 import BeautifulSoup
 from twilio.rest import Client
@@ -15,7 +14,6 @@ tomorrow = today + timedelta(1)
 tomorrow_formatted = tomorrow.strftime("%A %w %B %Y")
 
 # Get user's team name
-
 user_team = input("Which team do you support? ").lower()
 
 # Make a html request, and use BeautifulSoup and lxml to parse
@@ -25,7 +23,6 @@ soup = BeautifulSoup(content, 'lxml')
 
 # Get next fixture
 fixture = soup.find('div', class_='fixture').get_text(strip=True, separator=' ')
-
 
 # Get the date the team is playing
 next_game_date = soup.find('div', class_='fixture-date').get_text()
